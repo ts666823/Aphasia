@@ -10,6 +10,8 @@ import UIKit
 class PopOverCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    var imageName:String!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

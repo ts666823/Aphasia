@@ -12,16 +12,17 @@ struct PopOverViewData{
     var images:[String]
 }
 
-class PopOverViewController: UIViewController {
+class PopOverViewController: UIViewController{
 
-    let datas = [
+    var datas = [
         PopOverViewData(title: "指代", images: ["me","me","me","me","me","me","me","me","me","me","me","me","me","me","me"]),
-        PopOverViewData(title: "人际关系", images: ["me","me","me","me","me","me","me","me","me","me","me","me","me","me","me"])
+        PopOverViewData(title: "人际关系", images: ["/1/101/你","me","me","me","me","me","me","me","me","me","me","me","me","me","me"])
     ]
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    weak var delegate:PopOverDelegate!
     
     var titleText:String = ""
     override func viewDidLoad() {
@@ -46,11 +47,11 @@ extension PopOverViewController: UITableViewDelegate, UITableViewDataSource{
             fatalError()
         }
         
-        cell.reloadData(title: datas[indexPath.row].title, images: datas[indexPath.row].images)
-        
+        cell.reloadData(title: datas[indexPath.row].title, images: datas[indexPath.row].images,delegate: delegate)
         
         return cell
     }
 }
+
 
 
