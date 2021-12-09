@@ -7,10 +7,22 @@
 
 import UIKit
 
+class Word{
+    var str:String?
+    var colorIndex:Int?
+}
+
+let labelColor = [#colorLiteral(red: 0.431372549, green: 0.4156862745, blue: 0.8745098039, alpha: 1),
+                  #colorLiteral(red: 0.9803921569, green: 0.6196078431, blue: 0.4196078431, alpha: 1),
+                  #colorLiteral(red: 0.8470588235, green: 0.4117647059, blue: 1, alpha: 1),
+                  #colorLiteral(red: 0.4588235294, green: 0.7803921569, blue: 0.7137254902, alpha: 1),
+                  #colorLiteral(red: 0.5019607843, green: 0.7411764706, blue: 0.9764705882, alpha: 1)]
+
 class ViewController: UIViewController,PopOverDelegate {
     
-    func addWord(word: String) {
+    func addWord(word: String,colorIndex: Int) {
         choosedData.append(word)
+        choosedColor.append(colorIndex)
         wordCollectionView.reloadData()
     }
     
@@ -21,8 +33,8 @@ class ViewController: UIViewController,PopOverDelegate {
     @IBOutlet var tipLabel: UILabel!
     @IBOutlet var chooseCollectionView: UICollectionView!
     @IBOutlet weak var resultView: UIView!
+    @IBOutlet weak var btnSelected: UIView!
     
-
     @IBOutlet weak var chooseShadowBtn: UIButton!
     @IBOutlet weak var toneBtn: UIButton!
     @IBOutlet weak var decoretionBtn: UIButton!
@@ -31,14 +43,14 @@ class ViewController: UIViewController,PopOverDelegate {
     @IBOutlet var wordCollectionView: UICollectionView!
     //chooseCollectionView数据
     let chooseData = ["人物与指代","地点","服饰","饮食","医疗健康","身体部位","生活用品","家居","动植物","交通工具","时间","天气"]
-    
-    var choosedData = ["me", "park", "think", "go", "walk"]
+    var choosedData = ["我"]
+    var choosedColor = [0]
     
     let chooseDataRows = [["人称代词","数量指代","人际关系","职业"],["所处指代","室内","户外"],["服装","鞋与配饰"],
                           ["生活用品","电子产品"],["病症","药品","医疗器材与手段"],["身体部位"],["家具","家用电器"],
                           ["主食与糕点","饮品","蔬果","荤肉","水产"],["动物","植物"],["交通工具"],["时间"],["天气"],
-                          ["动作","想法与能力","活动"],["数目"]]
-    
+                          ["动作","想法与能力","活动"],["数目","颜色","状态","范围","程度","度量"],["连接词","语气与情形","时间与频率","介词"],["语气词"]]
+    let btnTitle = ["人物与指代","地点","服饰","饮食","医疗健康","身体部位","生活用品","家居","动植物","交通工具","时间","天气","活动","修饰","关联性","语气词"]
     let images=[[["你","你们","他","他们","它","她","她们","我","我们"],
                  ["那个","那些","全部","这个","这些"],
                  ["儿子","父亲","姑父","姑姑","家人","姐妹","舅舅","舅妈","老人","邻居","母亲","奶奶","男孩"
@@ -96,8 +108,27 @@ class ViewController: UIViewController,PopOverDelegate {
                   "看书","理发","起床","去医院","上厕所","上楼","视频","刷牙","睡觉","说话","脱鞋","脱衣服","玩手机",
                   "午睡","洗脸","洗头","洗澡","下楼","休息","学习"]
                 ],
-                [["零","一","二","三","四","五","六","七","八","九","十"]
+                [["零","一","二","三","四","五","六","七","八","九","十","许多","一些","全部","多","少","多少"],
+                 ["白色","彩色","橙色","粉色","黑色","红色","黄色","灰色","金色","蓝色","绿色","透明","银色","紫色",
+                 "棕色"],
+                 ["好","坏","冷","暖","热","冰","温","一般","快","慢","累","困","饿","舒服","难受","疼","长",
+                  "短","中等","大","小"],
+                 ["只有","一起","都"],
+                 ["很","最","太","更","比较","相当","一下","特别"],
+                 ["张","座","个","条","顶","棵","只","条","辆","本","件","首","两","斤","公斤","米","寸","勺","盘"
+                  ,"碗","桶","盆","杯","瓶","箱","袋","篮","年","月","日","点","周","天","分","秒","岁","粒","幢"
+                  ,"堆","条","根","片","面","块"]
+                ],
+                [["和","虽然","尽管","即使","再说","无论","都","只有","只要","甚至","而且","就","于是","却","但是","不过"
+                  ,"不然","原来","为了","因为","所以","因此","除了","包括","或者","不是","就是","如果","要是","像","比",
+                  "似乎","不如"],
+                 ["一定","却","就","难道","幸亏","反正","也许","大约","好像","几乎","还是"],
+                 ["刚","将要","总是","已经","正在","马上","一直","忽然","有时"],
+                 ["从","向","以","对","被","让","把"]
+                ],
+                [["呢","吧","啊","吗"]
                 ]
+                
     ]
     
     var chooseRow:Int = 0
@@ -135,8 +166,33 @@ class ViewController: UIViewController,PopOverDelegate {
              }
              controller.datas = data
              controller.delegate = self
-             
+             controller.colorIndex = colorIndex(wordClass: chooseRow)
          }
+        if segue.identifier == "btnToPop"{
+            let controller = segue.destination as! PopOverViewController
+            controller.titleText = btnTitle[chooseRow]
+            var data:[PopOverViewData] = []
+            for i in 0..<chooseDataRows[chooseRow].count
+            {
+                data.append(PopOverViewData(title: chooseDataRows[chooseRow][i], images: images[chooseRow][i]))
+            }
+            controller.datas = data
+            controller.delegate = self
+            controller.colorIndex = colorIndex(wordClass: chooseRow)
+        }
+    }
+    
+    func colorIndex(wordClass:Int) -> Int{
+        if(wordClass<=11){
+            return 0
+        }
+        else if(wordClass == 12){
+            return 1
+        }
+        else if(wordClass >= 13){
+            return 2
+        }
+        return 0
     }
 
     func setBorder(){
@@ -174,6 +230,27 @@ class ViewController: UIViewController,PopOverDelegate {
         chooseCollectionView.scrollToItem(at: IndexPath(row: chooseCollectionView.indexPathsForVisibleItems.endIndex + 3 > chooseData.count - 1 ? chooseData.count - 1:chooseCollectionView.indexPathsForVisibleItems.endIndex + 3 , section: 0), at: .centeredHorizontally, animated: true)
     }
     
+    @IBAction func sportTap(_ sender: Any) {
+        chooseRow = 12
+        btnSelected.center = sportBtn.center
+        performSegue(withIdentifier: "btnToPop", sender: self)
+    }
+    @IBAction func relationTap(_ sender: Any) {
+        chooseRow = 14
+        btnSelected.center = relationBtn.center
+        performSegue(withIdentifier: "btnToPop", sender: self)
+    }
+    @IBAction func decorationTap(_ sender: Any) {
+        chooseRow = 13
+        btnSelected.center = decoretionBtn.center
+        performSegue(withIdentifier: "btnToPop", sender: self)
+    }
+    @IBAction func toneTap(_ sender: Any) {
+        chooseRow = 15
+        btnSelected.center = toneBtn.center
+        performSegue(withIdentifier: "btnToPop", sender: self)
+    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
@@ -206,9 +283,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wordCell", for: indexPath) as? WordCollectionViewCell else {
                 fatalError()
             }
-            cell.imageView.frame.size = cell.frame.size
             cell.imageView.image = UIImage(named: choosedData[indexPath.row])
-
+            cell.label.text=choosedData[indexPath.row]
+            cell.label.backgroundColor = labelColor[choosedColor[indexPath.row]]
             
             return cell
         }

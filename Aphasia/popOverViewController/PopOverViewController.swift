@@ -19,6 +19,8 @@ class PopOverViewController: UIViewController{
         PopOverViewData(title: "人际关系", images: ["/1/101/你","me","me","me","me","me","me","me","me","me","me","me","me","me","me"])
     ]
     
+    var colorIndex = 0
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,7 +33,7 @@ class PopOverViewController: UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-
+        
         titleLabel.text = titleText
         // Do any additional setup after loading the view.
     }
@@ -46,10 +48,13 @@ extension PopOverViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PopOverTableViewCell", for: indexPath) as? PopOverTableViewCell else {
             fatalError()
         }
-        
-        cell.reloadData(title: datas[indexPath.row].title, images: datas[indexPath.row].images,delegate: delegate)
-        
+        cell.collectionView.frame.size.height = CGFloat(161*(datas[indexPath.row].images.count/8 + 1)+80)
+        cell.reloadData(title: datas[indexPath.row].title, images: datas[indexPath.row].images,delegate: delegate,colorIndex: colorIndex)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(161*(datas[indexPath.row].images.count/8 + 1)+80)
     }
 }
 
