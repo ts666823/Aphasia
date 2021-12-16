@@ -12,20 +12,26 @@ struct PopOverViewData{
     var images:[String]
 }
 
-class PopOverViewController: UIViewController{
+class PopOverViewController: UIViewController,CollectionDelegate{
+    func addSelect(word: String) {
+        choosedData.append(word)
+    }
+    
+    weak var delegate:PopOverDelegate!
+    
 
     var datas = [
         PopOverViewData(title: "指代", images: ["me","me","me","me","me","me","me","me","me","me","me","me","me","me","me"]),
         PopOverViewData(title: "人际关系", images: ["/1/101/你","me","me","me","me","me","me","me","me","me","me","me","me","me","me"])
     ]
     
+    var choosedData:[String] = []
+    
     var colorIndex = 0
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
-    weak var delegate:PopOverDelegate!
-    
+        
     var titleText:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,14 @@ class PopOverViewController: UIViewController{
         
         titleLabel.text = titleText
         // Do any additional setup after loading the view.
+    }
+    @IBAction func tapCancelBtn(_ sender: Any) {
+        choosedData.removeAll()
+        self.dismiss(animated: true)
+    }
+    @IBAction func tapConfirmBtn(_ sender: Any) {
+        delegate.addWord(words: choosedData, colorIndex: colorIndex)
+        self.dismiss(animated: true)
     }
 }
 
@@ -49,7 +63,7 @@ extension PopOverViewController: UITableViewDelegate, UITableViewDataSource{
             fatalError()
         }
         cell.collectionView.frame.size.height = CGFloat(161*(datas[indexPath.row].images.count/8 + 1)+80)
-        cell.reloadData(title: datas[indexPath.row].title, images: datas[indexPath.row].images,delegate: delegate,colorIndex: colorIndex)
+        cell.reloadData(title: datas[indexPath.row].title, images: datas[indexPath.row].images,delegate: self,colorIndex: colorIndex)
         return cell
     }
     

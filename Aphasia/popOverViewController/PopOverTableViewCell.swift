@@ -8,14 +8,19 @@
 import UIKit
 
 protocol PopOverDelegate:NSObjectProtocol {
-    func addWord(word:String,colorIndex:Int)
+    func addWord(words:[String],colorIndex:Int)
+}
+
+protocol CollectionDelegate:NSObjectProtocol {
+    func addSelect(word:String)
 }
 
 
 class PopOverTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
-    weak var delegate:PopOverDelegate?
+    weak var collectionDelegate:CollectionDelegate?
     
     var colorIndex:Int = 0
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
@@ -33,8 +38,7 @@ class PopOverTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
-        delegate?.addWord(word: images[indexPath.item],colorIndex: colorIndex)
-        
+        collectionDelegate?.addSelect(word: images[indexPath.item])
     }
     
     @IBOutlet weak var label: UILabel!
@@ -56,11 +60,11 @@ class PopOverTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         // Configure the view for the selected state
     }
     
-    func reloadData(title:String, images:[String],delegate:PopOverDelegate,colorIndex:Int){
+    func reloadData(title:String, images:[String],delegate:CollectionDelegate,colorIndex:Int){
         self.label.text = title
         self.images = images
         self.collectionView.reloadData()
-        self.delegate = delegate
+        self.collectionDelegate = delegate
         self.colorIndex = colorIndex
     }
 

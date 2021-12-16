@@ -25,7 +25,6 @@ class PopOverCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = 5
         self.layer.cornerRadius = self.frame.height/16
         self.layer.masksToBounds = false
-        
     }
 
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 class Word{
     var str:String?
@@ -18,13 +20,21 @@ let labelColor = [#colorLiteral(red: 0.431372549, green: 0.4156862745, blue: 0.8
                   #colorLiteral(red: 0.4588235294, green: 0.7803921569, blue: 0.7137254902, alpha: 1),
                   #colorLiteral(red: 0.5019607843, green: 0.7411764706, blue: 0.9764705882, alpha: 1)]
 
-class ViewController: UIViewController,PopOverDelegate {
-    
-    func addWord(word: String,colorIndex: Int) {
-        choosedData.append(word)
-        choosedColor.append(colorIndex)
+let backgroudColor = [#colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9764705882, alpha: 1),
+                      #colorLiteral(red: 1, green: 0.9607843137, blue: 0.9411764706, alpha: 1),
+                      #colorLiteral(red: 0.9921568627, green: 0.9764705882, blue: 1, alpha: 1),
+                      #colorLiteral(red: 0.9647058824, green: 1, blue: 0.9921568627, alpha: 1),
+                      #colorLiteral(red: 0.9647058824, green: 0.9843137255, blue: 1, alpha: 1)]
+
+class ViewController: UIViewController,PopOverDelegate, AVSpeechSynthesizerDelegate {
+    func addWord(words: [String], colorIndex: Int) {
+        for word in words {
+            choosedData.append(word)
+            choosedColor.append(colorIndex)
+        }
         wordCollectionView.reloadData()
     }
+    
     
     
     //视图控件
@@ -133,6 +143,8 @@ class ViewController: UIViewController,PopOverDelegate {
     
     var chooseRow:Int = 0
     
+    let synth = AVSpeechSynthesizer() //TTS对象
+    let audioSession = AVAudioSession.sharedInstance() //语音引擎
     
     var center: CGPoint = CGPoint(x: 10,y: 10){
         didSet{
@@ -153,6 +165,7 @@ class ViewController: UIViewController,PopOverDelegate {
         wordCollectionView.delegate = self
         //设置边框属性
         setBorder()
+        synth.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -194,6 +207,27 @@ class ViewController: UIViewController,PopOverDelegate {
         }
         return 0
     }
+    
+    func speechMessage(message:String){
+        if !message.isEmpty {
+            do {
+                // 设置语音环境，保证能朗读出声音（特别是刚做过语音识别，这句话必加，不然没声音）
+                try audioSession.setCategory(AVAudioSession.Category.ambient)
+            }catch let error as NSError{
+                print(error.code)
+            }
+            //需要转的文本
+            let utterance = AVSpeechUtterance.init(string: message)
+            //设置语言，这里是中文
+            utterance.voice = AVSpeechSynthesisVoice.init(language: "zh_CN")
+            //设置声音大小
+            utterance.volume = 1
+            //设置音频
+            utterance.pitchMultiplier = 1.1
+            //开始朗读
+            synth.speak(utterance)
+        }
+    }
 
     func setBorder(){
         //设置背景圆角
@@ -221,7 +255,9 @@ class ViewController: UIViewController,PopOverDelegate {
         toneBtn.addShadow(color: .gray, offset: CGSize.zero, opacity: 0.2)
         chooseShadowBtn.addShadow(color: .gray, offset: CGSize.zero, opacity: 0.2)
     }
-    
+}
+
+extension ViewController{
     @IBAction func leftBtn(_ sender: Any) {
         chooseCollectionView.scrollToItem(at: IndexPath(row: chooseCollectionView.indexPathsForVisibleItems.startIndex - 3 < 0 ? 0 :chooseCollectionView.indexPathsForVisibleItems.startIndex - 3 , section: 0), at: .centeredHorizontally, animated: true)
     }
@@ -249,6 +285,18 @@ class ViewController: UIViewController,PopOverDelegate {
         chooseRow = 15
         btnSelected.center = toneBtn.center
         performSegue(withIdentifier: "btnToPop", sender: self)
+    }
+    @IBAction func playBtn(_ sender: Any) {
+        let message = choosedData.joined(separator: "")
+        speechMessage(message: message)
+    }
+    @IBAction func deleteBtn(_ sender: Any) {
+        choosedData.removeLast()
+        wordCollectionView.reloadData()
+    }
+    @IBAction func clearBtn(_ sender: Any) {
+        choosedData.removeAll()
+        wordCollectionView.reloadData()
     }
     
 }
@@ -286,6 +334,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
             cell.imageView.image = UIImage(named: choosedData[indexPath.row])
             cell.label.text=choosedData[indexPath.row]
             cell.label.backgroundColor = labelColor[choosedColor[indexPath.row]]
+            cell.backgroundColor = backgroudColor[choosedColor[indexPath.row]]
             
             return cell
         }

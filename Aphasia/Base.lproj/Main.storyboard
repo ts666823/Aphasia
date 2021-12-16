@@ -197,6 +197,9 @@
                                         <rect key="frame" x="51" y="63" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="clear"/>
+                                        <connections>
+                                            <action selector="clearBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xi7-hx-ZX5"/>
+                                        </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dMo-Yo-Ir5">
                                         <rect key="frame" x="269" y="0.0" width="580" height="150"/>
@@ -259,11 +262,17 @@
                                         <rect key="frame" x="821" y="26" width="103" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="delete"/>
+                                        <connections>
+                                            <action selector="deleteBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UUR-Im-tKt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUJ-jF-Ncc">
                                         <rect key="frame" x="909" y="-6" width="188" height="169"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="playBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHa-bn-Khn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="78"/>
+            <point key="canvasLocation" x="767.7891654465592" y="77.9296875"/>
         </scene>
         <!--Pop Over View Controller-->
         <scene sceneID="Jsg-fK-ilf">
@@ -387,6 +396,24 @@
                                 <color key="textColor" red="0.43137254901960786" green="0.41568627450980389" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYI-Jq-A6z">
+                                <rect key="frame" x="17" y="29" width="93" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="cancel" title=" "/>
+                                <connections>
+                                    <action selector="tapCancelBtn:" destination="uKz-xY-2mg" eventType="touchUpInside" id="kOf-K4-q2X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pch-xD-kfp">
+                                <rect key="frame" x="966" y="29" width="93" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="confirm" title=" "/>
+                                <connections>
+                                    <action selector="tapConfirmBtn:" destination="uKz-xY-2mg" eventType="touchUpInside" id="ebj-7E-1gn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zyk-fN-jnQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -490,6 +517,24 @@
                                 <color key="textColor" red="0.43137254899999999" green="0.41568627450000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO2-tv-q7f">
+                                <rect key="frame" x="17" y="29" width="93" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="cancel" title=" "/>
+                                <connections>
+                                    <action selector="tapCancelBtn:" destination="y9h-QW-rle" eventType="touchUpInside" id="EX0-OI-7qc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbC-FD-m1I">
+                                <rect key="frame" x="956" y="29" width="93" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="confirm" title=" "/>
+                                <connections>
+                                    <action selector="tapConfirmBtn:" destination="y9h-QW-rle" eventType="touchUpInside" id="yUO-RQ-Tg3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jxC-Gz-7Qy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -506,7 +551,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cancel" width="65" height="22"/>
         <image name="clear" width="30" height="30"/>
+        <image name="confirm" width="65" height="22"/>
         <image name="delete" width="103" height="104"/>
         <image name="left" width="42" height="120"/>
         <image name="play" width="188" height="169"/>
