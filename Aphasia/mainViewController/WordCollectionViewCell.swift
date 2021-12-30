@@ -11,6 +11,7 @@ class WordCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         label.layer.cornerRadius = label.layer.frame.height/8

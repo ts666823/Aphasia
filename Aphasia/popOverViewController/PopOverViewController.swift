@@ -13,8 +13,15 @@ struct PopOverViewData{
 }
 
 class PopOverViewController: UIViewController,CollectionDelegate{
+    
     func addSelect(word: String) {
         choosedData.append(word)
+    }
+    
+    func deleteSelect(word: String){
+        if let index = choosedData.firstIndex(of: word){
+            choosedData.remove(at: index)
+        }
     }
     
     weak var delegate:PopOverDelegate!
@@ -41,6 +48,7 @@ class PopOverViewController: UIViewController,CollectionDelegate{
         tableView.separatorStyle = .none
         
         titleLabel.text = titleText
+         popoverPresentationController?.popoverLayoutMargins = .init(top: 0, left: 100, bottom: 200, right: 100)
         // Do any additional setup after loading the view.
     }
     @IBAction func tapCancelBtn(_ sender: Any) {

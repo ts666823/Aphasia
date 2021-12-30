@@ -13,10 +13,13 @@ protocol PopOverDelegate:NSObjectProtocol {
 
 protocol CollectionDelegate:NSObjectProtocol {
     func addSelect(word:String)
+    func deleteSelect(word: String)
 }
 
 
 class PopOverTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
     weak var collectionDelegate:CollectionDelegate?
     
     var colorIndex:Int = 0
@@ -32,13 +35,32 @@ class PopOverTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         }
         cell.imageView.image = UIImage(named: images[indexPath.item])
         cell.label.text=images[indexPath.item]
+        cell.colorIndex = colorIndex
         cell.label.backgroundColor = labelColor[colorIndex]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
+        let cell = collectionView.cellForItem(at: indexPath)
+        updateCellStatus(isSelected: true, cell: cell as! PopOverCollectionViewCell)
         collectionDelegate?.addSelect(word: images[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        updateCellStatus(isSelected: false, cell: cell as! PopOverCollectionViewCell)
+        collectionDelegate?.deleteSelect(word: images[indexPath.item])
+    }
+    
+    func updateCellStatus(isSelected:Bool,cell:PopOverCollectionViewCell){
+        if isSelected{
+            cell.layer.borderWidth = 5
+            cell.layer.borderColor = labelColor[cell.colorIndex].cgColor
+        }
+        else{
+            cell.layer.borderWidth = 0
+        }
     }
     
     @IBOutlet weak var label: UILabel!
@@ -52,6 +74,7 @@ class PopOverTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.allowsMultipleSelection = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

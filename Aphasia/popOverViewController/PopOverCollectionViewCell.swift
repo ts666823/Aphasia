@@ -12,7 +12,19 @@ class PopOverCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     var imageName:String!
     @IBOutlet weak var label: UILabel!
+    var colorIndex:Int!
     
+//    override var isSelected: Bool{
+//        didSet{
+//            if isSelected{
+//                self.layer.borderWidth = 2
+//                self.layer.borderColor = labelColor[colorIndex].cgColor
+//            }
+//            else{
+//                self.layer.borderWidth = 0
+//            }
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +38,4 @@ class PopOverCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = self.frame.height/16
         self.layer.masksToBounds = false
     }
-
 }

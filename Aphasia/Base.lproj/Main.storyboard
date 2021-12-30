@@ -287,7 +287,10 @@
                         <outlet property="btnSelected" destination="gx6-Zk-GNu" id="FTL-Ib-y9W"/>
                         <outlet property="chooseCollectionView" destination="x3r-mb-yEu" id="fFW-Sw-x9W"/>
                         <outlet property="chooseShadowBtn" destination="d8U-Y1-Hbs" id="zSj-Cr-Hxd"/>
+                        <outlet property="clearBtn" destination="zCn-1O-g96" id="VkJ-VX-3tT"/>
                         <outlet property="decoretionBtn" destination="CST-Yz-FLO" id="gay-ug-dte"/>
+                        <outlet property="deleteBtn" destination="bHm-6k-OU3" id="nJh-3n-P4a"/>
+                        <outlet property="playBtn" destination="vUJ-jF-Ncc" id="fFr-ab-Ays"/>
                         <outlet property="relationBtn" destination="S9H-vA-Eg4" id="ewX-uA-PIi"/>
                         <outlet property="resultView" destination="3Zn-oF-dSO" id="yrh-ug-UHH"/>
                         <outlet property="selectView" destination="F20-FO-dtm" id="DqV-cq-7cJ"/>
@@ -358,7 +361,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21l-mK-WeI">
-                                                                        <rect key="frame" x="4" y="85" width="84" height="40"/>
+                                                                        <rect key="frame" x="9" y="83" width="74" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" red="0.25882352939999997" green="0.26274509800000001" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -479,7 +482,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjd-A7-yx2">
-                                                                        <rect key="frame" x="4" y="85" width="84" height="40"/>
+                                                                        <rect key="frame" x="9" y="83" width="74" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" red="0.25882352939999997" green="0.26274509800000001" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
