@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		7E13E9F426DBE5A600F5FE26 /* ChooseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E13E9F326DBE5A600F5FE26 /* ChooseCollectionViewCell.swift */; };
 		7E13E9F626DBE70100F5FE26 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E13E9F526DBE70100F5FE26 /* WordCollectionViewCell.swift */; };
+		7EB7CA1927A0591D00394A0E /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA1827A0591D00394A0E /* SentenceViewController.swift */; };
+		7EB7CA1B27A0595F00394A0E /* SentenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA1A27A0595F00394A0E /* SentenceCollectionViewCell.swift */; };
+		7EB7CA1D27A07A8700394A0E /* PopOverBtnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA1C27A07A8700394A0E /* PopOverBtnViewController.swift */; };
+		7EB7CA2027BB672100394A0E /* WordPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA1F27BB672100394A0E /* WordPopOverViewController.swift */; };
+		7EB7CA2727C11DFF00394A0E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2627C11DFF00394A0E /* Stack.swift */; };
+		7EB7CA3027C1282000394A0E /* KeyWordsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2927C1281F00394A0E /* KeyWordsCollectionViewCell.swift */; };
+		7EB7CA3127C1282000394A0E /* DescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2A27C1281F00394A0E /* DescriptionCollectionViewCell.swift */; };
+		7EB7CA3227C1282000394A0E /* floatWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2B27C1281F00394A0E /* floatWindowViewController.swift */; };
+		7EB7CA3327C1282000394A0E /* WordsChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2C27C1281F00394A0E /* WordsChoiceCollectionViewCell.swift */; };
+		7EB7CA3427C1282000394A0E /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2D27C1281F00394A0E /* FloatView.swift */; };
+		7EB7CA3527C1282000394A0E /* centerFlowlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2E27C1281F00394A0E /* centerFlowlayout.swift */; };
+		7EB7CA3627C1282000394A0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7CA2F27C1281F00394A0E /* Color.swift */; };
 		7ECCCF3D26EA268600A8B82F /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECCCF3C26EA268600A8B82F /* extension.swift */; };
 		7ED86BF126D4FFF3005656BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED86BF026D4FFF3005656BD /* AppDelegate.swift */; };
 		7ED86BF326D4FFF3005656BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED86BF226D4FFF3005656BD /* SceneDelegate.swift */; };
@@ -43,6 +55,18 @@
 /* Begin PBXFileReference section */
 		7E13E9F326DBE5A600F5FE26 /* ChooseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E13E9F526DBE70100F5FE26 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EB7CA1827A0591D00394A0E /* SentenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceViewController.swift; sourceTree = "<group>"; };
+		7EB7CA1A27A0595F00394A0E /* SentenceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EB7CA1C27A07A8700394A0E /* PopOverBtnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverBtnViewController.swift; sourceTree = "<group>"; };
+		7EB7CA1F27BB672100394A0E /* WordPopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPopOverViewController.swift; sourceTree = "<group>"; };
+		7EB7CA2627C11DFF00394A0E /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		7EB7CA2927C1281F00394A0E /* KeyWordsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWordsCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EB7CA2A27C1281F00394A0E /* DescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EB7CA2B27C1281F00394A0E /* floatWindowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = floatWindowViewController.swift; sourceTree = "<group>"; };
+		7EB7CA2C27C1281F00394A0E /* WordsChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EB7CA2D27C1281F00394A0E /* FloatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatView.swift; sourceTree = "<group>"; };
+		7EB7CA2E27C1281F00394A0E /* centerFlowlayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = centerFlowlayout.swift; sourceTree = "<group>"; };
+		7EB7CA2F27C1281F00394A0E /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7ECCCF3C26EA268600A8B82F /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		7ED86BED26D4FFF3005656BD /* Aphasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aphasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED86BF026D4FFF3005656BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +112,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EB7CA1727A058E100394A0E /* SentenceViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7CA1827A0591D00394A0E /* SentenceViewController.swift */,
+				7EB7CA1A27A0595F00394A0E /* SentenceCollectionViewCell.swift */,
+			);
+			path = SentenceViewController;
+			sourceTree = "<group>";
+		};
+		7EB7CA1E27BB663000394A0E /* WordPopOverViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7CA1F27BB672100394A0E /* WordPopOverViewController.swift */,
+			);
+			path = WordPopOverViewController;
+			sourceTree = "<group>";
+		};
+		7EB7CA2527C11DF300394A0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7CA2627C11DFF00394A0E /* Stack.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7EB7CA2827C1281F00394A0E /* searchFloatWindow */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7CA2927C1281F00394A0E /* KeyWordsCollectionViewCell.swift */,
+				7EB7CA2A27C1281F00394A0E /* DescriptionCollectionViewCell.swift */,
+				7EB7CA2B27C1281F00394A0E /* floatWindowViewController.swift */,
+				7EB7CA2C27C1281F00394A0E /* WordsChoiceCollectionViewCell.swift */,
+				7EB7CA2D27C1281F00394A0E /* FloatView.swift */,
+				7EB7CA2E27C1281F00394A0E /* centerFlowlayout.swift */,
+				7EB7CA2F27C1281F00394A0E /* Color.swift */,
+			);
+			path = searchFloatWindow;
+			sourceTree = "<group>";
+		};
 		7ED86BE426D4FFF3005656BD = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +174,12 @@
 		7ED86BEF26D4FFF3005656BD /* Aphasia */ = {
 			isa = PBXGroup;
 			children = (
-				7ED9C53D26DF57F80010DC44 /* popOverViewController */,
-				7ED9C53C26DF57DA0010DC44 /* mainViewController */,
+				7EB7CA2827C1281F00394A0E /* searchFloatWindow */,
+				7EB7CA2527C11DF300394A0E /* Model */,
+				7EB7CA1E27BB663000394A0E /* WordPopOverViewController */,
+				7EB7CA1727A058E100394A0E /* SentenceViewController */,
+				7ED9C53D26DF57F80010DC44 /* PopOverViewController */,
+				7ED9C53C26DF57DA0010DC44 /* MainViewController */,
 				7ED86BF026D4FFF3005656BD /* AppDelegate.swift */,
 				7ED86BF226D4FFF3005656BD /* SceneDelegate.swift */,
 				7ED86BF626D4FFF3005656BD /* Main.storyboard */,
@@ -141,7 +208,7 @@
 			path = AphasiaUITests;
 			sourceTree = "<group>";
 		};
-		7ED9C53C26DF57DA0010DC44 /* mainViewController */ = {
+		7ED9C53C26DF57DA0010DC44 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
 				7ED86BF426D4FFF3005656BD /* ViewController.swift */,
@@ -149,17 +216,18 @@
 				7E13E9F326DBE5A600F5FE26 /* ChooseCollectionViewCell.swift */,
 				7ECCCF3C26EA268600A8B82F /* extension.swift */,
 			);
-			path = mainViewController;
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		7ED9C53D26DF57F80010DC44 /* popOverViewController */ = {
+		7ED9C53D26DF57F80010DC44 /* PopOverViewController */ = {
 			isa = PBXGroup;
 			children = (
 				7ED9C53826DF56480010DC44 /* PopOverViewController.swift */,
 				7ED9C53A26DF57220010DC44 /* PopOverTableViewCell.swift */,
 				7EE6D853273FE0CE003FD5B5 /* PopOverCollectionViewCell.swift */,
+				7EB7CA1C27A07A8700394A0E /* PopOverBtnViewController.swift */,
 			);
-			path = popOverViewController;
+			path = PopOverViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,14 +361,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ED86BF526D4FFF3005656BD /* ViewController.swift in Sources */,
+				7EB7CA3127C1282000394A0E /* DescriptionCollectionViewCell.swift in Sources */,
+				7EB7CA3627C1282000394A0E /* Color.swift in Sources */,
 				7E13E9F626DBE70100F5FE26 /* WordCollectionViewCell.swift in Sources */,
+				7EB7CA3327C1282000394A0E /* WordsChoiceCollectionViewCell.swift in Sources */,
+				7EB7CA3227C1282000394A0E /* floatWindowViewController.swift in Sources */,
 				7ED9C53B26DF57220010DC44 /* PopOverTableViewCell.swift in Sources */,
 				7ED9C53926DF56480010DC44 /* PopOverViewController.swift in Sources */,
 				7ED86BF126D4FFF3005656BD /* AppDelegate.swift in Sources */,
+				7EB7CA3527C1282000394A0E /* centerFlowlayout.swift in Sources */,
+				7EB7CA3427C1282000394A0E /* FloatView.swift in Sources */,
+				7EB7CA3027C1282000394A0E /* KeyWordsCollectionViewCell.swift in Sources */,
 				7E13E9F426DBE5A600F5FE26 /* ChooseCollectionViewCell.swift in Sources */,
+				7EB7CA1B27A0595F00394A0E /* SentenceCollectionViewCell.swift in Sources */,
+				7EB7CA2027BB672100394A0E /* WordPopOverViewController.swift in Sources */,
+				7EB7CA2727C11DFF00394A0E /* Stack.swift in Sources */,
 				7ED86BF326D4FFF3005656BD /* SceneDelegate.swift in Sources */,
 				7ECCCF3D26EA268600A8B82F /* extension.swift in Sources */,
 				7EE6D855273FE0CE003FD5B5 /* PopOverCollectionViewCell.swift in Sources */,
+				7EB7CA1927A0591D00394A0E /* SentenceViewController.swift in Sources */,
+				7EB7CA1D27A07A8700394A0E /* PopOverBtnViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
